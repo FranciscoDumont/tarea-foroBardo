@@ -31,6 +31,9 @@ object horacioPagani {
 	method nivelDeEnojo(unValor) {
 		nivelDeEnojo = unValor
 	}
+	method nivelDeEnojo(){
+		return nivelDeEnojo
+	}
 }
 
 object totiPasman {
