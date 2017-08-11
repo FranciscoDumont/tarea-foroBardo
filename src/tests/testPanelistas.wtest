@@ -1,8 +1,42 @@
-import conductores.polino
+import panelistas.*
 
-describe "ejemplo" {
+describe "Pruebo los mensajes de Horacio Pagani" {
 
-	test "Polino es polino" {
-		assert.equals(polino, polino)
+	test "Elevar la voz: El nivel de Enojo de Horacio es 0, eleva la voz y su enojo queda en 10." {
+		horacioPagani.nivelDeEnojo(0)
+		horacioPagani.elevarVoz()
+		assert.equals(10,horacioPagani.nivelDeEnojo())
 	}
+	
+	test "El nivel de Enojo de Horacio es 0, toma agua y sigue teniendo 0" {
+		horacioPagani.nivelDeEnojo(0)
+		horacioPagani.tomarAgua()
+		assert.equals(0,horacioPagani.nivelDeEnojo())
+	}
+	
+	test "El nivel de Enojo de Horacio es 100, toma agua y queda con 90 de enojo" {
+		horacioPagani.nivelDeEnojo(100)
+		horacioPagani.tomarAgua()
+		assert.equals(90,horacioPagani.nivelDeEnojo())
+	}
+	
+	test "Horacio está caliente si su enojo es mayor a 20 unidades" {
+		horacioPagani.nivelDeEnojo(21)
+		assert.that(horacioPagani.estaCaliente())
+	}
+	
+	test "Horacio está caliente, le piden que se calme, pero sigue caliente" {
+		horacioPagani.nivelDeEnojo(21)
+		horacioPagani.calmarse(666)
+		assert.that(horacioPagani.estaCaliente())
+	}
+	
+	test "Horacio NO está caliente, le piden que se calme y su enojo queda en 0" {
+		horacioPagani.nivelDeEnojo(20)
+		horacioPagani.calmarse(1)
+		assert.notThat(horacioPagani.estaCaliente())
+		assert.equals(0,horacioPagani.nivelDeEnojo())
+	}
+	
+	
 }
