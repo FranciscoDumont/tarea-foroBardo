@@ -60,6 +60,19 @@ describe"Pruebo los mensajes de Horacio Pagani, Toti Pasman y Lizzy Tagliani" {
 		assert.equals(50,totiPasman.soberbia())
 	}
 	
+//Lizzy
+
+	test "Lizzy comienza con humor = 10, toma agua y su humor queda en 20" {
+		lizzyTagliani.tomarAgua()
+		assert.equals(20,lizzyTagliani.humor())
+	}
+	
+	test "El humor de Lizzy es = -10, se calma 40 minutos y su humor queda en 30" {
+		lizzyTagliani.humor(-10)
+		lizzyTagliani.calmarse(40)
+		assert.equals(30,lizzyTagliani.humor())
+	}//Calmarse: si está de mal humor, lo aumenta en la cantidad de minutos. 
+
 	
 
 }
