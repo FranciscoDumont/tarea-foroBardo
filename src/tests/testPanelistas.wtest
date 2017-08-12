@@ -1,8 +1,8 @@
 import panelistas.*
 
-describe "Pruebo los mensajes de Horacio Pagani" {
+describe"Pruebo los mensajes de Horacio Pagani, Toti Pasman y Lizzy Tagliani" {
 
-	test "Elevar la voz: El nivel de Enojo de Horacio es 0, eleva la voz y su enojo queda en 10." {
+	test "El nivel de Enojo de Horacio es 0, eleva la voz y su enojo queda en 10." {
 		horacioPagani.nivelDeEnojo(0)
 		horacioPagani.elevarVoz()
 		assert.equals(10,horacioPagani.nivelDeEnojo())
@@ -37,6 +37,31 @@ describe "Pruebo los mensajes de Horacio Pagani" {
 		assert.notThat(horacioPagani.estaCaliente())
 		assert.equals(0,horacioPagani.nivelDeEnojo())
 	}
+
+//Toti
+
+	test "Toti no tiene sed y su soberbia es 0, eleva la voz y le da sed y su enojo queda en 10." {
+		totiPasman.soberbia(0)
+		assert.notThat(totiPasman.tieneSed())
+		totiPasman.elevarVoz()
+		assert.that(totiPasman.tieneSed())
+	}
+	
+	test "Toti tiene sed toma agua y se le pasa." {
+		totiPasman.elevarVoz()
+		assert.that(totiPasman.tieneSed())
+		totiPasman.tomarAgua()
+		assert.notThat(totiPasman.tieneSed())
+	}
+	
+	test "El nivel de soberbia de Toti es de 100, se calma 25 minutos y su soberbia queda en 50 ." {
+		totiPasman.soberbia(100)
+		totiPasman.calmarse(25)
+		assert.equals(50,totiPasman.soberbia())
+	}
 	
 	
+
 }
+
+
