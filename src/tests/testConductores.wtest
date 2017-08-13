@@ -1,6 +1,25 @@
 import conductores.*
+import panelistas.*
 
 describe "Pruebo los mensajes de Polino y Fantino" {
-
 	
+//Fantino
+	
+	test "Fantino hace opinar de deportes a Horacio Pagani con un nivel de enojo de 90. Su enojo termina en 81" {
+		horacioPagani.nivelDeEnojo(90)
+		fantino.hacerOpinarDeDeportesA(horacioPagani)
+		assert.equals(81, horacioPagani.nivelDeEnojo())
+	}
+	
+	test "Fantino hace opinar de deportes a Toti Pasman y queda con una soberbia de 0 y sin sed" {
+		fantino.hacerOpinarDeDeportesA(totiPasman)
+		assert.equals(0, totiPasman.soberbia())
+		assert.notThat(totiPasman.tieneSed())
+	}
+	
+	test "Fantino hace opinar de deportes a Lizzy Tagliani y queda en 40" {
+		fantino.hacerOpinarDeDeportesA(lizzyTagliani)
+		assert.equals(40, lizzyTagliani.humor())
+	}
+
 }
