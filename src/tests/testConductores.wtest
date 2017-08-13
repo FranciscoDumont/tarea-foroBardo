@@ -22,4 +22,23 @@ describe "Pruebo los mensajes de Polino y Fantino" {
 		assert.equals(40, lizzyTagliani.humor())
 	}
 
+//Polino
+
+	test "Polino hace opinar de chimentos a Horacio Pagani con un nivel de enojo de 10. Queda con 0 de enojo"{
+		horacioPagani.nivelDeEnojo(10)
+		polino.hacerOpinarDeChimentosA(horacioPagani)
+		assert.equals(0, horacioPagani.nivelDeEnojo())
+	}
+
+	test "Polino hace opinar de chimentos a Toti Pasman. Queda con 0 de soberbia y sin sed"{
+		polino.hacerOpinarDeChimentosA(totiPasman)
+		assert.equals(0, totiPasman.soberbia())
+		assert.notThat(totiPasman.tieneSed())
+	}
+
+	test "Polino hace opinar de chimentos a Lizzy Tagliani. Queda con 20 de humor"{
+		polino.hacerOpinarDeChimentosA(lizzyTagliani)
+		assert.equals(20, lizzyTagliani.humor())
+	}
+
 }
